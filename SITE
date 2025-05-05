@@ -1,0 +1,176 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HephestusTech</title>
+  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
+  <style>
+    body {
+      margin: 0;
+      font-family: 'Orbitron', sans-serif;
+      background-color: #0a0a0a;
+      color: #ffffff;
+    }
+    header {
+      background: linear-gradient(90deg, #1c1c1c, #ff5500);
+      padding: 40px;
+      text-align: center;
+    }
+    header h1 {
+      font-size: 3em;
+      margin-bottom: 10px;
+    }
+    header p {
+      font-size: 1.2em;
+    }
+    nav {
+      display: flex;
+      justify-content: center;
+      gap: 40px;
+      padding: 15px;
+      background-color: #111;
+    }
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1.1em;
+    }
+    nav a:hover {
+      color: #ff5500;
+    }
+    .hero {
+      background-image: url('https://images.unsplash.com/photo-1621569890996-cb7d56f0ba41');
+      background-size: cover;
+      background-position: center;
+      color: white;
+      text-align: center;
+      padding: 100px 20px;
+    }
+    .hero h2 {
+      font-size: 3em;
+      margin-bottom: 20px;
+    }
+    .hero p {
+      font-size: 1.4em;
+      max-width: 800px;
+      margin: auto;
+    }
+    .section-title {
+      text-align: center;
+      padding: 60px 20px 20px;
+      font-size: 2.2em;
+      color: #ff5500;
+    }
+    .products, .features, .gallery, .about, .contact {
+      padding: 40px 20px;
+      max-width: 1200px;
+      margin: auto;
+    }
+    .product, .feature {
+      background-color: #1c1c1c;
+      border-radius: 12px;
+      padding: 20px;
+      margin-bottom: 30px;
+      text-align: center;
+      border: 1px solid #333;
+    }
+    .product img, .feature img {
+      max-width: 100%;
+      height: auto;
+      border-radius: 8px;
+    }
+    .gallery img {
+      width: 100%;
+      max-height: 300px;
+      object-fit: cover;
+      border-radius: 12px;
+      margin-bottom: 20px;
+    }
+    .about p, .contact p {
+      font-size: 1.1em;
+      line-height: 1.6;
+    }
+    footer {
+      background-color: #111;
+      text-align: center;
+      padding: 30px;
+      font-size: 0.9em;
+      color: #ccc;
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>HephestusTech</h1>
+    <p>Forjando o futuro dos jogos e da tecnologia de entretenimento</p>
+  </header>
+  <nav>
+    <a href="#inicio">Início</a>
+    <a href="#produtos">Produtos</a>
+    <a href="#recursos">Recursos</a>
+    <a href="#galeria">Galeria</a>
+    <a href="#sobre">Sobre</a>
+    <a href="#contato">Contato</a>
+  </nav>
+  <section class="hero" id="inicio">
+    <h2>Console Hephestus</h2>
+    <p>Design forjado, poder inigualável. Bem-vindo à próxima geração dos jogos.</p>
+  </section>
+
+  <h2 class="section-title">Produtos</h2>
+  <section class="products" id="produtos">
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1606813908733-09c8d2b6c8ff" alt="Console Hephestus">
+      <h3>Hephestus Console</h3>
+      <p>Potência de sobra com 8K, Ray Tracing e tecnologia avançada de resfriamento.</p>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1587202372775-d753d7b87c3a" alt="Controle Ignis">
+      <h3>Controle Ignis</h3>
+      <p>Respostas táteis, comandos de voz e experiência imersiva total.</p>
+    </div>
+    <div class="product">
+      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Forge Studio">
+      <h3>Forge Studio</h3>
+      <p>Desenvolva e publique seus próprios jogos direto do console.</p>
+    </div>
+  </section>
+
+  <h2 class="section-title">Recursos Exclusivos</h2>
+  <section class="features" id="recursos">
+    <div class="feature">
+      <img src="https://images.unsplash.com/photo-1622445277333-3ab6dc1b7f9c" alt="Cloud Gaming">
+      <h3>Cloud Gaming</h3>
+      <p>Jogue na nuvem com baixa latência e alta definição em qualquer lugar.</p>
+    </div>
+    <div class="feature">
+      <img src="https://images.unsplash.com/photo-1600180758890-6f225b0c5093" alt="Interface Inteligente">
+      <h3>Interface Inteligente</h3>
+      <p>Personalize a experiência com IA integrada e comandos por voz.</p>
+    </div>
+  </section>
+
+  <h2 class="section-title">Galeria</h2>
+  <section class="gallery" id="galeria">
+    <img src="https://images.unsplash.com/photo-1618220179428-27044a3d4400" alt="Console em destaque">
+    <img src="https://images.unsplash.com/photo-1573497019119-b872873f19b3" alt="Setup Gamer com Hephestus">
+  </section>
+
+  <h2 class="section-title">Sobre Nós</h2>
+  <section class="about" id="sobre">
+    <p>Fundada em 2025, a HephestusTech nasceu com a missão de revolucionar a indústria de jogos eletrônicos. Unindo design futurista, potência bruta e inovações em IA, nossos produtos são desenvolvidos para oferecer experiências incomparáveis.</p>
+  </section>
+
+  <h2 class="section-title">Fale Conosco</h2>
+  <section class="contact" id="contato">
+    <p>Email: contato@hephestustech.com</p>
+    <p>Telefone: +55 (11) 99999-9999</p>
+    <p>Endereço: Av. dos Titãs, 2045 - São Paulo, SP</p>
+  </section>
+
+  <footer>
+    &copy; 2025 HephestusTech. Todos os direitos reservados.
+  </footer>
+</body>
+</html>
