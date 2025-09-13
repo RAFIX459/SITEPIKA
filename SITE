@@ -1,176 +1,385 @@
-<!DOCTYPE html>
-<html lang="pt-br">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>HephestusTech</title>
-  <link href="https://fonts.googleapis.com/css2?family=Orbitron:wght@500&display=swap" rel="stylesheet">
-  <style>
-    body {
-      margin: 0;
-      font-family: 'Orbitron', sans-serif;
-      background-color: #0a0a0a;
-      color: #ffffff;
-    }
-    header {
-      background: linear-gradient(90deg, #1c1c1c, #ff5500);
-      padding: 40px;
-      text-align: center;
-    }
-    header h1 {
-      font-size: 3em;
-      margin-bottom: 10px;
-    }
-    header p {
-      font-size: 1.2em;
-    }
-    nav {
-      display: flex;
-      justify-content: center;
-      gap: 40px;
-      padding: 15px;
-      background-color: #111;
-    }
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1.1em;
-    }
-    nav a:hover {
-      color: #ff5500;
-    }
-    .hero {
-      background-image: url('https://images.unsplash.com/photo-1621569890996-cb7d56f0ba41');
-      background-size: cover;
-      background-position: center;
-      color: white;
-      text-align: center;
-      padding: 100px 20px;
-    }
-    .hero h2 {
-      font-size: 3em;
-      margin-bottom: 20px;
-    }
-    .hero p {
-      font-size: 1.4em;
-      max-width: 800px;
-      margin: auto;
-    }
-    .section-title {
-      text-align: center;
-      padding: 60px 20px 20px;
-      font-size: 2.2em;
-      color: #ff5500;
-    }
-    .products, .features, .gallery, .about, .contact {
-      padding: 40px 20px;
-      max-width: 1200px;
-      margin: auto;
-    }
-    .product, .feature {
-      background-color: #1c1c1c;
-      border-radius: 12px;
-      padding: 20px;
-      margin-bottom: 30px;
-      text-align: center;
-      border: 1px solid #333;
-    }
-    .product img, .feature img {
-      max-width: 100%;
-      height: auto;
-      border-radius: 8px;
-    }
-    .gallery img {
-      width: 100%;
-      max-height: 300px;
-      object-fit: cover;
-      border-radius: 12px;
-      margin-bottom: 20px;
-    }
-    .about p, .contact p {
-      font-size: 1.1em;
-      line-height: 1.6;
-    }
-    footer {
-      background-color: #111;
-      text-align: center;
-      padding: 30px;
-      font-size: 0.9em;
-      color: #ccc;
-    }
-  </style>
-</head>
-<body>
-  <header>
-    <h1>HephestusTech</h1>
-    <p>Forjando o futuro dos jogos e da tecnologia de entretenimento</p>
-  </header>
-  <nav>
-    <a href="#inicio">Início</a>
-    <a href="#produtos">Produtos</a>
-    <a href="#recursos">Recursos</a>
-    <a href="#galeria">Galeria</a>
-    <a href="#sobre">Sobre</a>
-    <a href="#contato">Contato</a>
-  </nav>
-  <section class="hero" id="inicio">
-    <h2>Console Hephestus</h2>
-    <p>Design forjado, poder inigualável. Bem-vindo à próxima geração dos jogos.</p>
-  </section>
+-- Rafi_X Hub - Versão Suprema (Simulador Seguro)
+-- Ambiente de treino local para Roblox/Blox-Fruits-like (NÃO é cheat)
+-- Coloque um LocalScript em StarterPlayerScripts e crie ReplicatedStorage.Weapons (Modelos ou Tools locais)
+-- Autor: Rafi_X (Simulado)
 
-  <h2 class="section-title">Produtos</h2>
-  <section class="products" id="produtos">
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1606813908733-09c8d2b6c8ff" alt="Console Hephestus">
-      <h3>Hephestus Console</h3>
-      <p>Potência de sobra com 8K, Ray Tracing e tecnologia avançada de resfriamento.</p>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1587202372775-d753d7b87c3a" alt="Controle Ignis">
-      <h3>Controle Ignis</h3>
-      <p>Respostas táteis, comandos de voz e experiência imersiva total.</p>
-    </div>
-    <div class="product">
-      <img src="https://images.unsplash.com/photo-1517336714731-489689fd1ca8" alt="Forge Studio">
-      <h3>Forge Studio</h3>
-      <p>Desenvolva e publique seus próprios jogos direto do console.</p>
-    </div>
-  </section>
+--// Serviços
+local Players = game:GetService("Players")
+local ReplicatedStorage = game:GetService("ReplicatedStorage")
+local RunService = game:GetService("RunService")
+local Workspace = game:GetService("Workspace")
+local TweenService = game:GetService("TweenService")
 
-  <h2 class="section-title">Recursos Exclusivos</h2>
-  <section class="features" id="recursos">
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1622445277333-3ab6dc1b7f9c" alt="Cloud Gaming">
-      <h3>Cloud Gaming</h3>
-      <p>Jogue na nuvem com baixa latência e alta definição em qualquer lugar.</p>
-    </div>
-    <div class="feature">
-      <img src="https://images.unsplash.com/photo-1600180758890-6f225b0c5093" alt="Interface Inteligente">
-      <h3>Interface Inteligente</h3>
-      <p>Personalize a experiência com IA integrada e comandos por voz.</p>
-    </div>
-  </section>
+--// Player
+local player = Players.LocalPlayer
+local character = player.Character or player.CharacterAdded:Wait()
+local humanoid = character:WaitForChild("Humanoid")
+local rootPart = character:WaitForChild("HumanoidRootPart")
 
-  <h2 class="section-title">Galeria</h2>
-  <section class="gallery" id="galeria">
-    <img src="https://images.unsplash.com/photo-1618220179428-27044a3d4400" alt="Console em destaque">
-    <img src="https://images.unsplash.com/photo-1573497019119-b872873f19b3" alt="Setup Gamer com Hephestus">
-  </section>
+--// Config inicial
+local Config = {
+    AutoFarm = false,
+    AutoSkills = false,
+    SelectedWeapon = nil,        -- string name of weapon in ReplicatedStorage.Weapons
+    SkillSequence = {"Q","E","R"}, -- simulated keys
+    SkillDelay = 0.6,
+    TeleportYOffset = 5,
+    AutoFarmDamage = 120,        -- damage per attack simulation
+    BossSpawnOffset = Vector3.new(0,0,-30)
+}
 
-  <h2 class="section-title">Sobre Nós</h2>
-  <section class="about" id="sobre">
-    <p>Fundada em 2025, a HephestusTech nasceu com a missão de revolucionar a indústria de jogos eletrônicos. Unindo design futurista, potência bruta e inovações em IA, nossos produtos são desenvolvidos para oferecer experiências incomparáveis.</p>
-  </section>
+--// Containers
+local UI = {}
+local SimObjects = {} -- track spawned bosses
 
-  <h2 class="section-title">Fale Conosco</h2>
-  <section class="contact" id="contato">
-    <p>Email: contato@hephestustech.com</p>
-    <p>Telefone: +55 (11) 99999-9999</p>
-    <p>Endereço: Av. dos Titãs, 2045 - São Paulo, SP</p>
-  </section>
+--// Helper: create simple UI
+local function createGui()
+    local screen = Instance.new("ScreenGui")
+    screen.Name = "RafiX_Hub_Sim"
+    screen.ResetOnSpawn = false
+    screen.Parent = player:WaitForChild("PlayerGui")
 
-  <footer>
-    &copy; 2025 HephestusTech. Todos os direitos reservados.
-  </footer>
-</body>
-</html>
+    local main = Instance.new("Frame")
+    main.Name = "Main"
+    main.Size = UDim2.new(0,360,0,480)
+    main.Position = UDim2.new(0,20,0,60)
+    main.BackgroundColor3 = Color3.fromRGB(22,22,22)
+    main.BorderSizePixel = 0
+    main.Parent = screen
+
+    local title = Instance.new("TextLabel", main)
+    title.Size = UDim2.new(1,0,0,48)
+    title.BackgroundColor3 = Color3.fromRGB(30,30,30)
+    title.TextColor3 = Color3.fromRGB(255,255,255)
+    title.Font = Enum.Font.SourceSansBold
+    title.TextSize = 22
+    title.Text = "Rafi_X Hub — Simulador (Segurança ON)"
+    title.BorderSizePixel = 0
+
+    -- Status label
+    local status = Instance.new("TextLabel", main)
+    status.Name = "Status"
+    status.Size = UDim2.new(1, -20, 0, 30)
+    status.Position = UDim2.new(0,10,0,420)
+    status.BackgroundTransparency = 0.8
+    status.TextColor3 = Color3.fromRGB(200,200,200)
+    status.Font = Enum.Font.SourceSans
+    status.TextSize = 16
+    status.Text = "Status: Idle"
+
+    -- Buttons area
+    local y = 60
+    local function newButton(name, yOffset)
+        local btn = Instance.new("TextButton", main)
+        btn.Size = UDim2.new(0.96,0,0,36)
+        btn.Position = UDim2.new(0,8,0,yOffset)
+        btn.BackgroundColor3 = Color3.fromRGB(52,52,52)
+        btn.TextColor3 = Color3.fromRGB(255,255,255)
+        btn.Font = Enum.Font.SourceSansSemibold
+        btn.TextSize = 18
+        btn.Text = name
+        return btn
+    end
+
+    UI.Main = main
+    UI.Status = status
+    UI.ButtonSpawnBoss = newButton("Spawn Boss (Simulado)", y); y = y + 44
+    UI.ButtonToggleAutoFarm = newButton("Toggle AutoFarm: OFF", y); y = y + 44
+    UI.ButtonToggleAutoSkills = newButton("Toggle AutoSkills: OFF", y); y = y + 44
+    UI.ButtonTeleportNearest = newButton("Teleport to Nearest Boss", y); y = y + 44
+    UI.ButtonEquipNextWeapon = newButton("Equip Next Weapon (local)", y); y = y + 44
+
+    -- Weapon list label
+    local weaponsTitle = Instance.new("TextLabel", main)
+    weaponsTitle.Size = UDim2.new(1, -20, 0, 22)
+    weaponsTitle.Position = UDim2.new(0,10,0,y)
+    weaponsTitle.BackgroundTransparency = 1
+    weaponsTitle.TextColor3 = Color3.fromRGB(180,180,180)
+    weaponsTitle.Font = Enum.Font.SourceSans
+    weaponsTitle.TextSize = 14
+    weaponsTitle.Text = "Armas locais (ReplicatedStorage.Weapons):"
+    y = y + 26
+
+    local weaponsFrame = Instance.new("Frame", main)
+    weaponsFrame.Size = UDim2.new(1, -20, 0, 120)
+    weaponsFrame.Position = UDim2.new(0,10,0,y)
+    weaponsFrame.BackgroundColor3 = Color3.fromRGB(28,28,28)
+    weaponsFrame.BorderSizePixel = 0
+    weaponsFrame.ClipsDescendants = true
+
+    local weaponsList = Instance.new("ScrollingFrame", weaponsFrame)
+    weaponsList.Size = UDim2.new(1,0,1,0)
+    weaponsList.BackgroundTransparency = 1
+    weaponsList.CanvasSize = UDim2.new(0,0,0,0)
+    weaponsList.ScrollBarThickness = 6
+
+    UI.WeaponsFrame = weaponsList
+
+    -- Log
+    local log = Instance.new("TextBox", main)
+    log.Size = UDim2.new(1, -20, 0, 90)
+    log.Position = UDim2.new(0,10,1,-120)
+    log.BackgroundColor3 = Color3.fromRGB(12,12,12)
+    log.TextColor3 = Color3.fromRGB(180,180,180)
+    log.Font = Enum.Font.SourceSans
+    log.TextSize = 14
+    log.MultiLine = true
+    log.TextWrapped = true
+    log.ReadOnly = true
+    UI.LogBox = log
+end
+
+--// Utilities: logging and status
+local function log(msg)
+    if not UI.LogBox then return end
+    local prev = UI.LogBox.Text
+    local time = os.date("%H:%M:%S")
+    UI.LogBox.Text = ("[%s] %s\n%s"):format(time, msg, prev)
+end
+
+local function updateStatus()
+    local parts = {}
+    if Config.AutoFarm then table.insert(parts, "AutoFarm") end
+    if Config.AutoSkills then table.insert(parts, "AutoSkills") end
+    if Config.SelectedWeapon then table.insert(parts, "Weapon:"..tostring(Config.SelectedWeapon)) end
+    UI.Status.Text = "Status: " .. (next(parts) and table.concat(parts, " | ") or "Idle")
+end
+
+--// Weapons UI population (reads ReplicatedStorage.Weapons children names)
+local function populateWeaponsUI()
+    local folder = ReplicatedStorage:FindFirstChild("Weapons")
+    if not folder then
+        log("Aviso: ReplicatedStorage.Weapons não encontrado. Crie uma pasta com Tools/Models de teste.")
+        return
+    end
+    local list = UI.WeaponsFrame
+    for _, child in ipairs(list:GetChildren()) do child:Destroy() end
+
+    local y = 0
+    local buttonHeight = 28
+    for i, item in ipairs(folder:GetChildren()) do
+        local btn = Instance.new("TextButton")
+        btn.Size = UDim2.new(1, -6, 0, buttonHeight)
+        btn.Position = UDim2.new(0, 3, 0, y)
+        btn.BackgroundColor3 = Color3.fromRGB(42,42,42)
+        btn.TextColor3 = Color3.fromRGB(230,230,230)
+        btn.Font = Enum.Font.SourceSans
+        btn.TextSize = 14
+        btn.Text = item.Name
+        btn.Parent = list
+        y = y + buttonHeight + 4
+
+        btn.MouseButton1Click:Connect(function()
+            Config.SelectedWeapon = item.Name
+            log("Arma selecionada: "..item.Name)
+            updateStatus()
+        end)
+    end
+    list.CanvasSize = UDim2.new(0,0,0, y)
+end
+
+--// Simulated Boss creation
+local function spawnSimBoss(name, position)
+    position = position or (rootPart.Position + Config.BossSpawnOffset)
+    local model = Instance.new("Model")
+    model.Name = name or "SimBoss"
+
+    local head = Instance.new("Part")
+    head.Name = "Head"
+    head.Size = Vector3.new(4,1.8,4)
+    head.Position = position + Vector3.new(0,6,0)
+    head.Anchored = true
+    head.Parent = workspace
+    head.Parent = model
+
+    local torso = Instance.new("Part")
+    torso.Name = "Torso"
+    torso.Size = Vector3.new(6,6,4)
+    torso.Position = position
+    torso.Anchored = true
+    torso.Parent = model
+
+    local humanoid = Instance.new("Humanoid")
+    humanoid.MaxHealth = 5000
+    humanoid.Health = 5000
+    humanoid.Parent = model
+
+    -- Billboard health display
+    local billboard = Instance.new("BillboardGui", torso)
+    billboard.Size = UDim2.new(0,180,0,30)
+    billboard.AlwaysOnTop = true
+    billboard.StudsOffset = Vector3.new(0,4.5,0)
+    local label = Instance.new("TextLabel", billboard)
+    label.Size = UDim2.new(1,0,1,0)
+    label.BackgroundTransparency = 1
+    label.TextColor3 = Color3.fromRGB(255,255,255)
+    label.Font = Enum.Font.SourceSansBold
+    label.TextScaled = true
+    label.Text = "Boss ("..model.Name..") - HP: "..tostring(humanoid.Health)
+
+    -- listener to update label
+    humanoid:GetPropertyChangedSignal("Health"):Connect(function()
+        label.Text = ("Boss (%s) - HP: %d/%d"):format(model.Name, math.max(0, math.floor(humanoid.Health)), humanoid.MaxHealth)
+    end)
+
+    model.Parent = Workspace
+    table.insert(SimObjects, {Model = model, Hum = humanoid, Torso = torso})
+    log("Boss simulado spawnado: "..model.Name.." HP: "..humanoid.Health)
+    return model
+end
+
+--// Find nearest simulated boss to player
+local function findNearestSimBoss()
+    local best, bestDist = nil, math.huge
+    for _, info in ipairs(SimObjects) do
+        if info.Model and info.Hum and info.Hum.Health > 0 then
+            local torso = info.Torso
+            if torso and torso.Parent then
+                local dist = (torso.Position - rootPart.Position).Magnitude
+                if dist < bestDist then
+                    bestDist = dist
+                    best = info
+                end
+            end
+        end
+    end
+    return best
+end
+
+--// Teleport to a simulated boss
+local function teleportToSimBoss(info)
+    if not info or not info.Torso then return end
+    local cf = CFrame.new(info.Torso.Position + Vector3.new(0, Config.TeleportYOffset, 0))
+    -- smooth tween
+    local tween = TweenService:Create(rootPart, TweenInfo.new(0.25, Enum.EasingStyle.Quad), {CFrame = cf})
+    tween:Play()
+    log("Teleportado localmente para boss: "..tostring(info.Model.Name))
+end
+
+--// Equip simulated weapon (local only)
+local function equipLocalWeapon(weaponName)
+    if not weaponName then
+        log("Nenhuma arma selecionada.")
+        return
+    end
+    local folder = ReplicatedStorage:FindFirstChild("Weapons")
+    if not folder then
+        log("ReplicatedStorage.Weapons não encontrado.")
+        return
+    end
+    local item = folder:FindFirstChild(weaponName)
+    if not item then
+        log("Arma '"..weaponName.."' não encontrada.")
+        return
+    end
+    -- attempt to clone a Model or Tool into character visually (local only)
+    -- if it's a Tool, we can parent to StarterPack temporarily — but to keep local-only, we'll create a visible accessory part
+    -- create a simple visual representation: handle part attached to root
+    -- destroy any previous "SimWeapon"
+    for _, c in ipairs(character:GetChildren()) do
+        if c.Name == "SimWeapon" then c:Destroy() end
+    end
+    local handle = Instance.new("Part")
+    handle.Name = "SimWeapon"
+    handle.Size = Vector3.new(1.2,3,0.4)
+    handle.CanCollide = false
+    handle.Anchored = false
+    handle.Parent = character
+    -- weld to right hand or root
+    local weld = Instance.new("WeldConstraint", handle)
+    weld.Part0 = rootPart
+    weld.Part1 = handle
+    handle.CFrame = rootPart.CFrame * CFrame.new(1.2, -1.2, -1)
+    log("Equipado localmente: "..weaponName)
+    updateStatus()
+end
+
+--// AutoFarm logic (simulado): apply damage to boss health periodically
+local autoFarmCoroutine = nil
+local function startAutoFarm()
+    if autoFarmCoroutine then return end
+    autoFarmCoroutine = RunService.Heartbeat:Connect(function(dt)
+        if not Config.AutoFarm then return end
+        local target = findNearestSimBoss()
+        if not target then return end
+        -- simulate attack: reduce health
+        if target.Hum and target.Hum.Health > 0 then
+            target.Hum:TakeDamage(Config.AutoFarmDamage * dt * 3) -- scaled by dt
+            -- optionally simulate skill usage
+            if Config.AutoSkills then
+                -- Simulate skill sequence (visual/log only)
+                -- We'll not spam logs; use a timer
+            end
+            if target.Hum.Health <= 0 then
+                log("Boss derrotado: "..tostring(target.Model.Name))
+            end
+        end
+    end)
+    log("AutoFarm iniciado (simulado).")
+end
+
+local function stopAutoFarm()
+    if autoFarmCoroutine then
+        autoFarmCoroutine:Disconnect()
+        autoFarmCoroutine = nil
+        log("AutoFarm parado.")
+    end
+end
+
+--// Bind UI interactions
+local function bindUI()
+    UI.ButtonSpawnBoss.MouseButton1Click:Connect(function()
+        local count = #SimObjects + 1
+        spawnSimBoss("RafiBoss_"..tostring(count))
+    end)
+
+    UI.ButtonToggleAutoFarm.MouseButton1Click:Connect(function()
+        Config.AutoFarm = not Config.AutoFarm
+        UI.ButtonToggleAutoFarm.Text = "Toggle AutoFarm: " .. (Config.AutoFarm and "ON" or "OFF")
+        if Config.AutoFarm then startAutoFarm() else stopAutoFarm() end
+        updateStatus()
+    end)
+
+    UI.ButtonToggleAutoSkills.MouseButton1Click:Connect(function()
+        Config.AutoSkills = not Config.AutoSkills
+        UI.ButtonToggleAutoSkills.Text = "Toggle AutoSkills: " .. (Config.AutoSkills and "ON" or "OFF")
+        updateStatus()
+    end)
+
+    UI.ButtonTeleportNearest.MouseButton1Click:Connect(function()
+        local target = findNearestSimBoss()
+        if target then teleportToSimBoss(target) else log("Nenhum boss simulado presente.") end
+    end)
+
+    UI.ButtonEquipNextWeapon.MouseButton1Click:Connect(function()
+        -- pick next weapon from ReplicatedStorage.Weapons
+        local folder = ReplicatedStorage:FindFirstChild("Weapons")
+        if not folder then log("Nenhuma pasta ReplicatedStorage.Weapons encontrada.") return end
+        local children = folder:GetChildren()
+        if #children == 0 then log("Nenhuma arma na pasta.") return end
+        -- cycle selection
+        local currentIndex = 0
+        for i,v in ipairs(children) do
+            if v.Name == Config.SelectedWeapon then currentIndex = i break end
+        end
+        local nextIndex = (currentIndex % #children) + 1
+        Config.SelectedWeapon = children[nextIndex].Name
+        equipLocalWeapon(Config.SelectedWeapon)
+    end)
+end
+
+--// Init
+createGui()
+populateWeaponsUI()
+bindUI()
+updateStatus()
+log("Rafi_X Hub (Simulador Seguro) pronto. Lembre-se: este é um ambiente LOCAL de treino, não um cheat.")
+
+--// Cleanup on character respawn: reattach refs
+player.CharacterAdded:Connect(function(char)
+    character = char
+    humanoid = character:WaitForChild("Humanoid")
+    rootPart = character:WaitForChild("HumanoidRootPart")
+    log("Character respawnado. Reconfigurando referências locais.")
+    updateStatus()
+end)
